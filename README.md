@@ -2,7 +2,7 @@
 
 A beautifully designed, fully-featured settings menu system for Godot 4 multiplayer games with multiple theme support (Dark, Purple, and White themes).
 
-![Settings Menu Preview](https://via.placeholder.com/800x450/2C2C2C/FFFFFF?text=Multiplayer+Settings+Menu)
+![Settings Menu Preview](<img width="1920" height="998" alt="image" src="https://github.com/user-attachments/assets/800c2ebf-0b1f-4a3a-94b4-011d69ef173c" />)
 
 ## ✨ Features
 

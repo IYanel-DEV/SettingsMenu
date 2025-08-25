@@ -1,0 +1,1012 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ihay5we7e8p"]
+
+[ext_resource type="Script" uid="uid://3v2xe4v2fpog" path="res://Addons/SettingsMenuMain.gd" id="1_2x3y4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.05, 0.05, 0.05, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.25, 0.25, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2x3y4")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -350.0
+offset_right = 500.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SettingsTitle" type="Label" parent="MainPanel/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 36
+text = "Multiplayer Settings"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="MainPanel/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "×"
+
+[node name="HSeparator" type="HSeparator" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TabContainer" type="TabContainer" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_unselected_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+current_tab = 0
+
+[node name="Graphics" type="ScrollContainer" parent="MainPanel/VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GraphicsContainer" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplaySection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer"]
+layout_mode = 2
+
+[node name="DisplayLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Display"
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection"]
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/ResolutionContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Resolution:"
+
+[node name="ResolutionOption" type="OptionButton" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/ResolutionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+selected = 1
+item_count = 8
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+popup/item_4/text = "3440x1440"
+popup/item_4/id = 4
+popup/item_5/text = "3840x2160"
+popup/item_5/id = 5
+popup/item_6/text = "5120x2880"
+popup/item_6/id = 6
+popup/item_7/text = "7680x4320"
+popup/item_7/id = 7
+
+[node name="WindowModeContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection"]
+layout_mode = 2
+
+[node name="WindowModeLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/WindowModeContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Window Mode:"
+
+[node name="WindowModeOption" type="OptionButton" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/WindowModeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Borderless"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+
+[node name="RefreshRateContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection"]
+layout_mode = 2
+
+[node name="RefreshRateLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/RefreshRateContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Refresh Rate:"
+
+[node name="RefreshRateOption" type="OptionButton" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/RefreshRateContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+selected = 1
+item_count = 4
+popup/item_0/text = "60 Hz"
+popup/item_0/id = 0
+popup/item_1/text = "120 Hz"
+popup/item_1/id = 1
+popup/item_2/text = "144 Hz"
+popup/item_2/id = 2
+popup/item_3/text = "240 Hz"
+popup/item_3/id = 3
+
+[node name="HSeparatorGraphics1" type="HSeparator" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer"]
+layout_mode = 2
+
+[node name="QualitySection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer"]
+layout_mode = 2
+
+[node name="QualityLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Quality Settings"
+
+[node name="GraphicsPresetContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection"]
+layout_mode = 2
+
+[node name="GraphicsPresetLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/GraphicsPresetContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Graphics Preset:"
+
+[node name="GraphicsPresetOption" type="OptionButton" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/GraphicsPresetContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+selected = 1
+item_count = 4
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "High"
+popup/item_2/id = 2
+popup/item_3/text = "Ultra"
+popup/item_3/id = 3
+
+[node name="TextureQualityContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection"]
+layout_mode = 2
+
+[node name="TextureQualityLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/TextureQualityContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Texture Quality:"
+
+[node name="TextureQualitySlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/TextureQualityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 3.0
+value = 2.0
+
+[node name="TextureQualityValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/TextureQualityContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "High"
+
+[node name="ShadowQualityContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection"]
+layout_mode = 2
+
+[node name="ShadowQualityLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/ShadowQualityContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Shadow Quality:"
+
+[node name="ShadowQualitySlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/ShadowQualityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 3.0
+value = 2.0
+
+[node name="ShadowQualityValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/ShadowQualityContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "High"
+
+[node name="AntiAliasingContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection"]
+layout_mode = 2
+
+[node name="AntiAliasingLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/AntiAliasingContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Anti-Aliasing:"
+
+[node name="AntiAliasingOption" type="OptionButton" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/AntiAliasingContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+selected = 1
+item_count = 4
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA 2x"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 4x"
+popup/item_3/id = 3
+
+[node name="VSyncContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection"]
+layout_mode = 2
+
+[node name="VSyncLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/VSyncContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "V-Sync:"
+
+[node name="VSyncCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/VSyncContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+button_pressed = true
+
+[node name="Audio" type="ScrollContainer" parent="MainPanel/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="AudioContainer" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer"]
+layout_mode = 2
+
+[node name="AudioLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Audio Settings"
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection"]
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/MasterVolumeContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Master Volume:"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 75.0
+
+[node name="MasterVolumeValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/MasterVolumeContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "75%"
+
+[node name="GameVolumeContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection"]
+layout_mode = 2
+
+[node name="GameVolumeLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/GameVolumeContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Game Volume:"
+
+[node name="GameVolumeSlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/GameVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+
+[node name="GameVolumeValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/GameVolumeContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "80%"
+
+[node name="VoiceChatVolumeContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection"]
+layout_mode = 2
+
+[node name="VoiceChatVolumeLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/VoiceChatVolumeContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Voice Chat Volume:"
+
+[node name="VoiceChatVolumeSlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/VoiceChatVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 70.0
+
+[node name="VoiceChatVolumeValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/VoiceChatVolumeContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "70%"
+
+[node name="HSeparatorAudio1" type="HSeparator" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer"]
+layout_mode = 2
+
+[node name="VoiceChatSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer"]
+layout_mode = 2
+
+[node name="VoiceChatLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Voice Chat"
+
+[node name="VoiceChatEnabledContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection"]
+layout_mode = 2
+
+[node name="VoiceChatEnabledLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection/VoiceChatEnabledContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Enable Voice Chat:"
+
+[node name="VoiceChatEnabledCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection/VoiceChatEnabledContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+button_pressed = true
+
+[node name="PushToTalkContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection"]
+layout_mode = 2
+
+[node name="PushToTalkLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection/PushToTalkContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Push to Talk:"
+
+[node name="PushToTalkCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection/PushToTalkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="InputDevice" type="ScrollContainer" parent="MainPanel/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="InputContainer" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MouseSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer"]
+layout_mode = 2
+
+[node name="MouseLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Mouse Settings"
+
+[node name="MouseSensitivityContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection"]
+layout_mode = 2
+
+[node name="MouseSensitivityLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseSensitivityContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Mouse Sensitivity:"
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseSensitivityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="MouseSensitivityValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseSensitivityContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "1.0"
+
+[node name="MouseInvertYContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection"]
+layout_mode = 2
+
+[node name="MouseInvertYLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseInvertYContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Invert Mouse Y:"
+
+[node name="MouseInvertYCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseInvertYContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="MouseAccelerationContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection"]
+layout_mode = 2
+
+[node name="MouseAccelerationLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseAccelerationContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Mouse Acceleration:"
+
+[node name="MouseAccelerationCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseAccelerationContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="HSeparatorInput1" type="HSeparator" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer"]
+layout_mode = 2
+
+[node name="GamepadSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer"]
+layout_mode = 2
+
+[node name="GamepadLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Gamepad Settings"
+
+[node name="GamepadEnabledContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection"]
+layout_mode = 2
+
+[node name="GamepadEnabledLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadEnabledContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Enable Gamepad:"
+
+[node name="GamepadEnabledCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadEnabledContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+button_pressed = true
+
+[node name="GamepadSensitivityContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection"]
+layout_mode = 2
+
+[node name="GamepadSensitivityLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadSensitivityContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Gamepad Sensitivity:"
+
+[node name="GamepadSensitivitySlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadSensitivityContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="GamepadSensitivityValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadSensitivityContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "1.0"
+
+[node name="GamepadVibrationContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection"]
+layout_mode = 2
+
+[node name="GamepadVibrationLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadVibrationContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Controller Vibration:"
+
+[node name="GamepadVibrationCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadVibrationContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+button_pressed = true
+
+[node name="Keybinds" type="ScrollContainer" parent="MainPanel/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="KeybindsContainer" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MovementSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer"]
+layout_mode = 2
+
+[node name="MovementLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Movement"
+
+[node name="MoveForwardContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection"]
+layout_mode = 2
+
+[node name="MoveForwardLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveForwardContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Move Forward:"
+
+[node name="MoveForwardButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveForwardContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "W"
+
+[node name="MoveBackwardContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection"]
+layout_mode = 2
+
+[node name="MoveBackwardLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveBackwardContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Move Backward:"
+
+[node name="MoveBackwardButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveBackwardContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "S"
+
+[node name="MoveLeftContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection"]
+layout_mode = 2
+
+[node name="MoveLeftLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveLeftContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Move Left:"
+
+[node name="MoveLeftButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveLeftContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "A"
+
+[node name="MoveRightContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection"]
+layout_mode = 2
+
+[node name="MoveRightLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveRightContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Move Right:"
+
+[node name="MoveRightButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/MoveRightContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "D"
+
+[node name="JumpContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection"]
+layout_mode = 2
+
+[node name="JumpLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/JumpContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Jump:"
+
+[node name="JumpButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/MovementSection/JumpContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "Space"
+
+[node name="HSeparatorKeybinds1" type="HSeparator" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer"]
+layout_mode = 2
+
+[node name="CombatSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer"]
+layout_mode = 2
+
+[node name="CombatLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Combat"
+
+[node name="PrimaryAttackContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection"]
+layout_mode = 2
+
+[node name="PrimaryAttackLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection/PrimaryAttackContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Primary Attack:"
+
+[node name="PrimaryAttackButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection/PrimaryAttackContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "Left Mouse"
+
+[node name="SecondaryAttackContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection"]
+layout_mode = 2
+
+[node name="SecondaryAttackLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection/SecondaryAttackContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Secondary Attack:"
+
+[node name="SecondaryAttackButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection/SecondaryAttackContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "Right Mouse"
+
+[node name="ReloadContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection"]
+layout_mode = 2
+
+[node name="ReloadLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection/ReloadContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Reload:"
+
+[node name="ReloadButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CombatSection/ReloadContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "R"
+
+[node name="HSeparatorKeybinds2" type="HSeparator" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer"]
+layout_mode = 2
+
+[node name="CommunicationSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer"]
+layout_mode = 2
+
+[node name="CommunicationLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Communication"
+
+[node name="VoiceChatContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection"]
+layout_mode = 2
+
+[node name="VoiceChatLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection/VoiceChatContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Push to Talk:"
+
+[node name="VoiceChatButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection/VoiceChatContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "V"
+
+[node name="ChatContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection"]
+layout_mode = 2
+
+[node name="ChatLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection/ChatContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Open Chat:"
+
+[node name="ChatButton" type="Button" parent="MainPanel/VBoxContainer/TabContainer/Keybinds/KeybindsContainer/CommunicationSection/ChatContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "T"
+
+[node name="Network" type="ScrollContainer" parent="MainPanel/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="NetworkContainer" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConnectionSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer"]
+layout_mode = 2
+
+[node name="ConnectionLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Connection Settings"
+
+[node name="PlayerNameContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection"]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/PlayerNameContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Player Name:"
+
+[node name="PlayerNameLineEdit" type="LineEdit" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/PlayerNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "Player"
+placeholder_text = "Enter your name..."
+
+[node name="RegionContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection"]
+layout_mode = 2
+
+[node name="RegionLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/RegionContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Preferred Region:"
+
+[node name="RegionOption" type="OptionButton" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/RegionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+selected = 1
+item_count = 5
+popup/item_0/text = "Auto"
+popup/item_0/id = 0
+popup/item_1/text = "North America"
+popup/item_1/id = 1
+popup/item_2/text = "Europe"
+popup/item_2/id = 2
+popup/item_3/text = "Asia"
+popup/item_3/id = 3
+popup/item_4/text = "Oceania"
+popup/item_4/id = 4
+
+[node name="MaxPingContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection"]
+layout_mode = 2
+
+[node name="MaxPingLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/MaxPingContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Max Ping:"
+
+[node name="MaxPingSlider" type="HSlider" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/MaxPingContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 50.0
+max_value = 300.0
+step = 10.0
+value = 100.0
+
+[node name="MaxPingValue" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/MaxPingContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "100ms"
+
+[node name="HSeparatorNetwork1" type="HSeparator" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer"]
+layout_mode = 2
+
+[node name="GameplayNetworkSection" type="VBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer"]
+layout_mode = 2
+
+[node name="GameplayNetworkLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 24
+text = "Gameplay"
+
+[node name="ShowPingContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection"]
+layout_mode = 2
+
+[node name="ShowPingLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection/ShowPingContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Show Ping:"
+
+[node name="ShowPingCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection/ShowPingContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+button_pressed = true
+
+[node name="ShowPlayerNamesContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection"]
+layout_mode = 2
+
+[node name="ShowPlayerNamesLabel" type="Label" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection/ShowPlayerNamesContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Show Player Names:"
+
+[node name="ShowPlayerNamesCheckBox" type="CheckBox" parent="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection/ShowPlayerNamesContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+button_pressed = true
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="MainPanel/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "Reset to Defaults"
+
+[node name="ApplyButton" type="Button" parent="MainPanel/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/hover = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "Apply Settings"
+
+[connection signal="pressed" from="MainPanel/VBoxContainer/TitleContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="item_selected" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/ResolutionContainer/ResolutionOption" to="." method="_on_resolution_selected"]
+[connection signal="item_selected" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/WindowModeContainer/WindowModeOption" to="." method="_on_window_mode_selected"]
+[connection signal="item_selected" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/DisplaySection/RefreshRateContainer/RefreshRateOption" to="." method="_on_refresh_rate_selected"]
+[connection signal="item_selected" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/GraphicsPresetContainer/GraphicsPresetOption" to="." method="_on_graphics_preset_selected"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/TextureQualityContainer/TextureQualitySlider" to="." method="_on_texture_quality_changed"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/ShadowQualityContainer/ShadowQualitySlider" to="." method="_on_shadow_quality_changed"]
+[connection signal="item_selected" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/AntiAliasingContainer/AntiAliasingOption" to="." method="_on_anti_aliasing_selected"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/Graphics/GraphicsContainer/QualitySection/VSyncContainer/VSyncCheckBox" to="." method="_on_vsync_toggled"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/MasterVolumeContainer/MasterVolumeSlider" to="." method="_on_master_volume_changed"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/GameVolumeContainer/GameVolumeSlider" to="." method="_on_game_volume_changed"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/AudioSection/VoiceChatVolumeContainer/VoiceChatVolumeSlider" to="." method="_on_voice_chat_volume_changed"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection/VoiceChatEnabledContainer/VoiceChatEnabledCheckBox" to="." method="_on_voice_chat_enabled_toggled"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/Audio/AudioContainer/VoiceChatSection/PushToTalkContainer/PushToTalkCheckBox" to="." method="_on_push_to_talk_toggled"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseSensitivityContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_changed"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseInvertYContainer/MouseInvertYCheckBox" to="." method="_on_mouse_invert_y_toggled"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/MouseSection/MouseAccelerationContainer/MouseAccelerationCheckBox" to="." method="_on_mouse_acceleration_toggled"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadEnabledContainer/GamepadEnabledCheckBox" to="." method="_on_gamepad_enabled_toggled"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadSensitivityContainer/GamepadSensitivitySlider" to="." method="_on_gamepad_sensitivity_changed"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/InputDevice/InputContainer/GamepadSection/GamepadVibrationContainer/GamepadVibrationCheckBox" to="." method="_on_gamepad_vibration_toggled"]
+[connection signal="text_changed" from="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/PlayerNameContainer/PlayerNameLineEdit" to="." method="_on_player_name_changed"]
+[connection signal="item_selected" from="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/RegionContainer/RegionOption" to="." method="_on_region_selected"]
+[connection signal="value_changed" from="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/ConnectionSection/MaxPingContainer/MaxPingSlider" to="." method="_on_max_ping_changed"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection/ShowPingContainer/ShowPingCheckBox" to="." method="_on_show_ping_toggled"]
+[connection signal="toggled" from="MainPanel/VBoxContainer/TabContainer/Network/NetworkContainer/GameplayNetworkSection/ShowPlayerNamesContainer/ShowPlayerNamesCheckBox" to="." method="_on_show_player_names_toggled"]
+[connection signal="pressed" from="MainPanel/VBoxContainer/ButtonContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MainPanel/VBoxContainer/ButtonContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
